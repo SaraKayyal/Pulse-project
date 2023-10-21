@@ -1,0 +1,7 @@
+{
+    "host": "LAPTOP-4S88TNE4.local",
+    "user": "dbadm",
+    "password": "P@ssw0rd",
+    "database": "pulse",
+    "multipleStatements": true
+}

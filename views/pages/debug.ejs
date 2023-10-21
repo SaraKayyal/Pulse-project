@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Information</title>
+</head>
+<body>
+    <h1>Debug Information</h1>
+    <h2>Project ID/h2>
+    <p><%= project_id %></p>
+    <h2>Submission Date</h2>
+    <p><%= submissionDate %></p>
+    <h2>Report Content</h2>
+    <p><%= reportContent %></p>
+</body>
+</html>
+
+
+<div class="survey-form">
+    <h1 style="text-align: center;">Write a report</h1>
+    <form method="post" action="/write/report">
+        <div class="form-group">
+            <input type="hidden" name="project_id" value="<%= project_id %>">
+            <label for="submissionDate">Select Due Date:</label>
+            <select name="submissionDate" required>
+                <% for (let dueDate of dueDates) { %>
+                    <option value="<%= dueDate %>"><%= dueDate %></option>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="reportContent">Report Content:</label>
+            <textarea name="reportContent" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <!-- Add more questions/fields here -->
+        </div>
+
+        <button type="submit">Submit Report</button>
+    </form>
+</div>

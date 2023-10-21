@@ -1,0 +1,64 @@
+<%- include("./../partials/header.ejs") %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Set-up page</title>
+    <link rel="stylesheet" href="/style4.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <h1>Set-up your password</h1>
+    <form action="/register/setup-password" method="POST">
+        <div class="form-input">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= username %>" readonly>
+        </div>
+
+        <div class="form-input">
+            <label for="password">Enter your new password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-input">
+            <label for="confirmPassword">Confirm your new password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <!-- Error message element -->
+        <div class="error-message" id="password-error" style="color: rgb(141, 7, 7); font-size: 26px; font-weight: bold;"></div>
+
+        <br>
+        <button type="submit">Set Password</button>
+    </form>
+
+    <!-- JavaScript for password validation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordError = document.getElementById('password-error');
+
+            // Function to handle form submission
+            function handleSubmit(event) {
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    passwordError.textContent = 'Passwords do not match. Please try again.';
+                    event.preventDefault(); // Prevent form submission
+                } else {
+                    // Clear the error message if passwords match
+                    passwordError.textContent = '';
+                }
+            }
+
+            // Add event listener to the form's submit event
+            const form = document.querySelector('form');
+            form.addEventListener('submit', handleSubmit);
+        });
+    </script>
+
+</body>
+
+<%- include("./../partials/footer.ejs") %>

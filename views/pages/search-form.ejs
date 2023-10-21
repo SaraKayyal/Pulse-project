@@ -1,0 +1,27 @@
+<div class="search">
+    <link rel="stylesheet" href="/style.css">
+    <input class="srch" type="search" name="" placeholder="Type To text">
+    <button class="btn" onclick="searchPage()">Search</button>
+</div>
+
+<script>
+    function searchPage() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        switch (searchTerm) {
+            case "about":
+                window.location.href = "/pulse/about";
+                break;
+            case "contact":
+                window.location.href = "/pulse/contact";
+                break;
+            case "service":
+                window.location.href = "/pulse/service";
+                break;
+            case "home":
+                window.location.href = "/pulse/welcome";
+                break;
+            default:
+                alert("Page not found!");
+        }
+    }
+</script>

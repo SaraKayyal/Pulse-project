@@ -1,0 +1,54 @@
+<%- include("./../partials/header.ejs") %>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create Team</title>
+    <link rel="stylesheet" href="/style4.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <!-- Member Menu -->
+    <div class="menu_tem_member">
+        <ul>
+            <li><a href="/logged">HOME</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+            <li><a href="/teams">TEAMS</a></li>
+            <li><a href="/pulse/reports">REPORTS</a></li>
+            <li><a href="/pulse/logout">LOGOUT</a></li>
+        </ul>
+    </div>
+
+<h1>Delete project</h1>
+
+<% data.one = data.one[0] %>
+
+<form method="post" action="/projects/delete" class="survey-form">
+    <label>Name:</label>
+    <input type="text" name="name" readonly value="<%= data.one.name %>">
+    
+    <label>Team ID:</label>
+    <input type="text" name="team_id" readonly value="<%= data.one.team_id %>">
+    
+    <label>Reporting Frequency:</label>
+    <input type="text" name="reporting_freq" readonly value="<%= data.one.reporting_freq %>">
+    
+    <label>Reporting Date:</label>
+    <input type="date" name="reporting_date" value="<%= data.one.reporting_date.toISOString().slice(0, 10) %>">
+
+    
+    <label>Description:</label>
+    <input type="text" name="description" readonly value="<%= data.one.description %>">
+    
+    <label>Status:</label>
+    <input type="text" name="status" readonly value="<%= data.one.status %>">
+    
+    <input type="submit" value="Delete">
+</form>
+
+
+<%- include("./../partials/footer.ejs") %>

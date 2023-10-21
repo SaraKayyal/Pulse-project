@@ -1,0 +1,103 @@
+<%- include("./../partials/header.ejs") %>
+
+
+<div class="center-box">
+    <link rel="stylesheet" href="/style1.css">
+    <link rel="stylesheet" href="/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <h1>Upload CSV File</h1>
+    <form enctype="multipart/form-data" action="/register/members" method="post">
+        <div class="file-input">
+            <input type="file" name="csvFile" id="csvFile" accept=".csv"><br><br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <!-- <div class="menuCsv">
+        <ul>
+            <li><a href="/logged">HOME</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+            <li><a href="/members">MEMBERS</a></li>
+            <li><a href="/teams">TEAMS</a></li>
+            <li><a href="/pulse/reports">REPORTS</a></li>
+            <li><a href="/pulse/logout">LOGOUT</a></li>
+        </ul>
+    </div> -->
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span><span>MASAR</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/logged">
+                        <span class="las la-igloo"></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/teams">
+                        <span class="las la-people-carry"></span>
+                        <span>Teams</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/members">
+                        <span class="las la-users"></span>
+                        <span>Members</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/projects">
+                        <span class="las la-igloo"></span>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/register/members" class="active">
+                        <span class="las la-user"></span>
+                        <span>Register members</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="las la-receipt"></span>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='/pulse/logout'>
+                        <span class="la la-sign-out" aria-hidden="true"></span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                Register members
+            </h2>
+            <div class="user-wrapper">
+                <div>
+                    <h4>Usman</h4>
+                    <small>Super admin</small>
+                </div>
+            </div>
+        </header>
+    </div>
+    <p class="center-text">Data: Full Name, Birth date, Phone number, Email, Role, Address</p>
+</div>
+
+<%- include("./../partials/footer.ejs") %>

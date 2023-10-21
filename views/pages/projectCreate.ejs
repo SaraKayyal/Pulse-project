@@ -1,0 +1,137 @@
+<%- include("./../partials/header.ejs") %>
+    <html>
+
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create Project</title>
+        <link rel="stylesheet" href="/style4.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    </head>
+
+    <body>
+        <!-- Member Menu -->
+        <div class="menu_tem_member">
+            <ul>
+                <li><a href="/logged">HOME</a></li>
+                <li><a href="/projects">PROJECTS</a></li>
+                <li><a href="/teams">TEAMS</a></li>
+                <li><a href="/submitted/reports">REPORTS</a></li>
+                <li><a href="/pulse/logout">LOGOUT</a></li>
+            </ul>
+        </div>
+
+        <div class="survey-form">
+            <h1 style="text-align: center;">Create a project</h1>
+
+            <form method="post" action="/create/project">
+                <label for="name">Project Name:</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="start_date">Start Date:</label>
+                <input type="date" name="start_date" id="start_date" required>
+
+                <label for="end_date">End Date:</label>
+                <input type="date" name="end_date" id="end_date" required>
+                <span id="end-date-error" style="color: rgb(155, 25, 25);"></span>
+
+                <label for="reporting_freq">Reporting Frequency:</label>
+                <select name="reporting_freq" id="reporting_freq" required>
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Fortnightly">Fortnightly</option>
+                    <option value="Monthly">Monthly</option>
+                </select>
+
+                <label for="reporting_date">First reporting Date:</label>
+                <input type="date" name="reporting_date" id="reporting_date" required>
+                <span id="report_date_error" style="color: rgb(155, 25, 25);"></span>
+
+
+                <label for="status">Status:</label>
+                <select name="status" id="status" required>
+                    <option value="Planning">Planning</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" rows="4"></textarea>
+
+                <label for="team_id">Team ID:</label>
+                <select name="team_id" id="team_id" required>
+                    <option value="" disabled selected>Select a Team ID</option>
+                    <% existingTeams.forEach(team=> { %>
+                        <option value="<%= team.team_id %>">
+                            <%= team.team_id %>
+                        </option>
+                        <% }); %>
+                </select>
+
+                <input type="submit" value="Create Project" class="create-order-btn">
+            </form>
+            <script>
+                // For handling the error when it comes to the project creation.
+                document.addEventListener("DOMContentLoaded", function () {
+                    const startDateInput = document.getElementById("start_date");
+                    const endDateInput = document.getElementById("end_date");
+                    const endDateError = document.getElementById("end-date-error");
+            
+                    endDateInput.addEventListener("change", function () {
+                        const startDate = new Date(startDateInput.value);
+                        const endDate = new Date(endDateInput.value);
+            
+                        if (endDate < startDate) {
+                            endDateError.textContent = "End date cannot be before the start date.";
+                            endDateInput.value = ""; // Clear the end date input
+                        } else {
+                            endDateError.textContent = "";
+                        }
+                    });
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const startDateInput = document.getElementById("start_date");
+                    const reportingDateInput = document.getElementById("reporting_date");
+                    const endDateInput = document.getElementById("end_date");
+                    const reportDateError = document.getElementById("report_date_error");
+            
+                    reportingDateInput.addEventListener("change", function () {
+                        const startDate = new Date(startDateInput.value);
+                        const reportingDate = new Date(reportingDateInput.value);
+                        const endDate = new Date(endDateInput.value);
+            
+                        if (reportingDate < startDate) {
+                            reportDateError.textContent = "Reporting date cannot be before the start date.";
+                            reportingDateInput.value = "";
+                        } else if (reportingDate > endDate) {
+                            reportDateError.textContent = "Reporting date cannot be after the end date.";
+                            reportingDateInput.value = ""
+                        }
+                        else {
+                            reportDateError.textContent = "";
+                        }
+                    });
+                });
+            </script>
+        </div>
+        <script>
+            $(document).ready(function () {
+                // Initialize datepicker for fields with class "datepicker"
+                $(".datepicker").datepicker({
+                    dateFormat: 'mm/dd/yy', // Set the desired date format
+                });
+            });
+        </script>
+    </body>
+
+    </html>
+    <%- include("./../partials/header.ejs") %>

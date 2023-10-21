@@ -1,0 +1,22 @@
+<%- include("./../partials/header.ejs") %>
+<html></html>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to MASAR, <%= nameUser %>!</h1>
+            <link rel="stylesheet" href="/style1.css">
+        </div>
+        <div class="content">
+            <h3>Here is your profile information: </h3>
+            <p>Email: <%= email %></p>
+            <p>Username: <%= nameUser %></p>Click the following link to set your password:</p>
+            <p><a href="http://localhost:1337/register/setup-password?username=<%= username %>&token=<%= token %>">Set Password</a></p>
+            <p>** The link will expire after 24 hours, set your password as soon as possible!</p>
+            <p>Contact the manager <a href='/pulse/contact'>Contact Page</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
+<%- include("./../partials/footer.ejs") %>

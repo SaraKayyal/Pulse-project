@@ -1,0 +1,51 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create Project</title>
+    <link rel="stylesheet" href="/style4.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- Member Menu -->
+    <div class="menu_tem_member">
+        <ul>
+            <li><a href="/dashboard/team_member">HOME</a></li>
+            <li><a href="/Your/projects">YOUR PROJECTS</a></li>
+            <li><a href="/pulse/logout">LOGOUT</a></li>
+        </ul>
+    </div>
+    <div class="survey-form">
+        <h1 style="text-align: center;">Write a report</h1>
+        <form method="post" action="/write/report">
+            <div class="form-group">
+                <input type="hidden" name="project_id" value="<%= project_id %>">
+                <label for="submissionDate">Select Due Date:</label>
+                <select name="submissionDate" required>
+                    <% for (let dueDate of dueDates) { %>
+                        <option value="<%= dueDate %>"><%= dueDate %></option>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reportContent">Report Content:</label>
+                <textarea name="reportContent" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <!-- Add more questions/fields here -->
+            </div>
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </div>
+</body>
+

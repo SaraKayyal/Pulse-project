@@ -1,0 +1,171 @@
+/* For the emails */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#eaeaea, #686fba);
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+}
+.content {
+    padding: 20px;
+}
+
+/* For the csv-file */
+.center-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.center-box h1 {
+    font-size: 45px;
+}
+
+.center-box tr {
+    font-size: 25px;
+}
+
+.file-input {
+    display: inline-block;
+    padding: 45px 40px;
+    background-color: #6b7e97;
+    color: #fff;
+    border: 2px solid #3fa0ca;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.file-input input[type="submit"]{
+    font-size: 25px;
+}
+
+.file-input input[type="file"]{
+    font-size: 25px;
+}
+
+/* For the menu */
+.menuCsv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fff; /* Background color for the menu */
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2); /* Add a shadow for separation */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.menuCsv ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menuCsv li {
+    display: inline-block;
+    margin-right: 20px; /* Adjust the spacing between menu items */
+    line-height: 50px;
+}
+
+.menuCsv a {
+    text-decoration: none;
+    color: #333; 
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.center-text {
+    text-align: center;
+    font-size: 18px;
+}
+
+
+
+/* Media query for screens with a maximum width of 1176px */
+@media screen and (max-width: 1176px) {
+    .center-box h1 {
+        font-size: 40px;
+    }
+
+    .center-box table {
+        font-size: 22px;
+    }
+
+    .file-input {
+        padding: 15px 30px;
+    }
+
+    .file-input input[type="submit"] {
+        font-size: 22px;
+    }
+
+    .file-input input[type="file"] {
+        font-size: 22px;
+    }
+}
+
+/* Media query for screens with a maximum width of 927px */
+@media screen and (max-width: 927px) {
+    .center-box h1 {
+        font-size: 35px;
+    }
+
+    .center-box table {
+        font-size: 20px;
+    }
+
+    .file-input {
+        padding: 12px 25px;
+    }
+
+    .file-input input[type="submit"] {
+        font-size: 20px;
+    }
+
+    .file-input input[type="file"] {
+        font-size: 20px;
+    }
+
+    .center-text {
+        font-size: 16px;
+    }
+}
+
+/* Media query for screens with a maximum width of 560px */
+@media screen and (max-width: 560px) {
+    .center-box h1 {
+        font-size: 30px;
+    }
+
+    .center-box table {
+        font-size: 18px;
+    }
+
+    .file-input {
+        padding: 10px 20px;
+    }
+
+    .file-input input[type="submit"] {
+        font-size: 18px;
+    }
+
+    .file-input input[type="file"] {
+        font-size: 18px;
+    }
+
+    .center-text {
+        font-size: 14px;
+    }
+}

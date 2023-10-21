@@ -1,0 +1,87 @@
+<%- include("./../partials/header.ejs") %>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create Team</title>
+        <link rel="stylesheet" href="/style4.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                const selectedMembers = [];
+
+                // Iterate through all checkboxes with the name 'selected_members'
+                $('input[name="selected_members"]:checked').each(function () {
+                    selectedMembers.push($(this).val());
+                });
+
+                // Add the selected members as a comma-separated string to a hidden input
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'selected_members_str',
+                    value: selectedMembers.join(',')
+                }).appendTo($(this));
+
+                // Continue submitting the form
+            });
+        });
+    </script>
+
+    <body>
+        <!-- Member Menu -->
+        <div class="menu_tem_member">
+            <ul>
+                <li><a href="/logged">HOME</a></li>
+                <li><a href="/projects">PROJECTS</a></li>
+                <li><a href="/teams">TEAMS</a></li>
+                <li><a href="/members">MEMBERS</a></li>
+                <li><a href="/submitted/reports">REPORTS</a></li>
+                <li><a href="/pulse/logout">LOGOUT</a></li>
+            </ul>
+        </div>
+
+        <div class="survey-form">
+            <h1 style="text-align: center;">Create a team</h1>
+        
+            <form method="post" action="/create/team">
+                <label for="team_name">Team Name:</label>
+                <input type="text" name="team_name" id="team_name" required>
+            
+                <label for="team_members">Select Team Members:</label>
+                <div class="member-select-box">
+                    <div class="selected-members">
+                        <span class="placeholder">Select members</span>
+                        <div class="selected-member-list">
+                            <!-- The selected members will be displayed here -->
+                        </div>
+                    </div>
+                    <div class="member-options">
+                        <% for (const member of members) { %>
+                            <div class="checkbox-item">
+                                <label for="<%= member.name %>">
+                                    <input type="checkbox" name="selected_members" value="<%= member.name %>" id="<%= member.name %>">
+                                    <input type="hidden" name="selected_member_ids" value="<%= member.employee_id %>">
+                                    <span><%= member.name %></span>
+                                </label>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <input type="submit" value="Create Team" class="create-order-btn">
+                </div>
+            </form>
+        </div>
+        
+
+    </body>
+
+    </html>
+    <%- include("./../partials/header.ejs") %>
