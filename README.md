@@ -32,9 +32,8 @@ Pulse project provides a management and reporting system where a manager and a m
 name	birth_date	phone_number	email	role	address
     - Then fill the other rows with the members data.
     - An overview of how the file should looks like with a member as an example:
-| name| birth_date | phone_number |	email	| role	| address
-John Doe	19901210	071234567 johdoe648@exampel.com	Team Member	123 Main St
-
+name|birth_date|phone_number|email|role|address
+John Doe|19901210|071234567|johdoe648@exampel.com|Team Member|123 Main St
 
   ##  Installtions and setup.
    This web application was created using:
