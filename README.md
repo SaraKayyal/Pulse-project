@@ -25,6 +25,16 @@ Pulse project provides a management and reporting system where a manager and a m
       - Tokens are used for the setting password.
       - Sessions are used to track user interactions and maintain their authentication state throughout their use of the application. This helps prevent unauthorized access to sensitive features and data.
   
+  - Uploading a CSV-file:
+    - You must to upload a CSV-file to register members.
+    - Recommendation create an excel file for the CSV-file.
+    - Upload the file with this format in the first row have this data
+name	birth_date	phone_number	email	role	address
+    - Then fill the other rows with the members data.
+    - An overview of how the file should looks like with a member as an example:
+name	phone_number	email	role	address
+John Doe	19901210	johdoe648@exampel.com	Team Member	123 Main St
+
 
   ##  Installtions and setup.
    This web application was created using:
